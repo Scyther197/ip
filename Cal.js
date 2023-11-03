@@ -135,3 +135,26 @@ console.log("strBuffer:", strBuffer);
 // console.log(`buffer written : ${bufferWritten}`)
 // const bufferContent = buf2.toString("utf-8", 0, bufferWritten)
 // console.log(bufferContent)
+var fs=require('fs')
+
+var readStream=fs.createReadStream('output.txt','utf-8')
+
+var data='';
+
+readStream.on('data',function(chunk){
+
+console.log('-----------------------------------------------------')
+
+data+=chunk;
+
+// console.log(chunk);
+
+})
+
+readStream.on('end',function(chunk){
+
+console.log(data)
+
+console.log('------------------End-----------------------------')
+
+})
